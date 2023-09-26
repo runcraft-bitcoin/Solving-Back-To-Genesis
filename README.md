@@ -4,6 +4,15 @@ This is a repo that acts as a public forum to explore ideas to solve the back to
 
 The focus is not on implementing, but on exploring solutions and forming one common vision (or many) around a good solution that can be implemented later on.
 
+## Table of contents
+
+> - [Summary of the back-to-genesis problem](#summary-of-the-back-to-genesis-problem)
+> - [How to contribute](#how-to-contribute)
+> - [Formatting](#formatting)
+> - [Copyrights / public domain](#copyrights---public-domain)
+> - [Some seed ideas for inspiration](#some-seed-ideas-for-inspiration)
+
+
 # Summary of the back-to-genesis problem
 
 For a summary of the problem, check out this video by Joshua Henslee (@jdh7190): https://www.youtube.com/watch?v=hT86Y9wnNkY
