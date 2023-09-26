@@ -53,3 +53,40 @@ Then each BTGP should have the following parts:
 
 Note that submitting a BTGP means you automatically put it as public domain use.
 
+# Some seed ideas for inspiration
+
+1) **full indexer**
+
+build a full indexer that indexes all the protocol, but this is extremely expensive and intensive to maintain, and also to this day doesn't have any clear economically viable business model. It is also one of the reasons why the original RunConnect indexer node went bankrupt (one app was generating thousands of transactions and the node couldn't keep up which degraded service for all other apps and eventually cost too much to maintain).
+
+2) **co-signer**
+
+have a co-signer (aka authorizer) for every single transaction. It can also be a pool of co-signers. But this has the drawback of making it more centralized at the transaction-creation level.
+
+3) **full history**
+
+include the full token history in each transaction, but this makes the fees explode as the chain increases
+
+4) **script protocol implementation**
+
+implement the full RUN protocol in script and include it into each transaction (probably too burdensome to do though)
+
+  
+5) **trusted nodes with proof of code ownership**
+
+create a protocol for trusted nodes to provide states of contracts they care about with a way for them to prove their ownership of contracts' code so that we can trust their state commitments. (This could be a good first iteration).
+
+6) **onchain delegation**
+
+same as above but add the ability for code owners to do an onchain delegation of nodes they trust to index the states correctly.
+
+  
+7) **onchain commitments**
+
+same as above but the nodes commit onchain commitments of the smartcontracts states from the contracts they care about.
+
+
+8) **commitments with proofs**
+
+same as above but make nodes also able to check each other to some extent, which can also include some proof of work or proof of stake on top of the commitments. (This is were we see the solution going for now, but who knows?).
+
