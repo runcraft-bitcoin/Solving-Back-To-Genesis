@@ -1,101 +1,100 @@
-# Solving Back-To-Genesis | BTG Proposals (BTGP)
+# Solving Back-To-Genesis | BTG Proposals (BTGPs)
 
-This is a repo that acts as a public forum to explore ideas to solve the back to genesis problem, especially in the context of the RUN library on BitcoinSV (cf https://Runcraft.io)
+This repository serves as a public platform for the exploration of ideas aimed at resolving the Back-To-Genesis problem, particularly within the framework of the RUN library on BitcoinSV (refer to https://Runcraft.io).
 
-The focus is not on implementing, but on exploring solutions and forming one common vision (or many) around a good solution that can be implemented later on.
+At this stage, the primary emphasis is on brainstorming solutions and cultivating a shared vision, or multiple visions, for a viable solution that can be implemented at a later stage.
 
 ## Table of contents
 
-> - [Summary of the back-to-genesis problem](#summary-of-the-back-to-genesis-problem)
-> - [How to contribute](#how-to-contribute)
-> - [Formatting](#formatting)
-> - [Copyrights / public domain](#copyrights---public-domain)
-> - [Some seed ideas for inspiration](#some-seed-ideas-for-inspiration)
+> - [Summary of the Back-to-Genesis Problem](#summary-of-the-back-to-genesis-problem)
+> - [How to Contribute](#how-to-contribute)
+> - [Formatting Guidelines](#formatting-guidelines)
+> - [Copyrights and Public Domain](#copyrights-and-public-domain)
+> - [Seed Ideas for Inspiration](#seed-ideas-for-inspiration)
 
 
-# Summary of the back-to-genesis problem
+# Summary of the Back-to-Genesis Problem
 
-For a summary of the problem, check out this video by Joshua Henslee (@jdh7190): https://www.youtube.com/watch?v=hT86Y9wnNkY
+For a detailed explanation of the problem, you can watch this video by Joshua Henslee (@jdh7190): [Watch Video](https://www.youtube.com/watch?v=hT86Y9wnNkY)
 
-Here is a summary of the problem in the context of the RUN library, which adds a layer2 smartcontract virtual machine on top of the back-to-genesis problem.
+In the context of the RUN library, which introduces a layer 2 smart contract virtual machine on top of the Back-to-Genesis problem, here is a concise summary of the issue:
 
-1) smartcontracts are executed in a virtual machine that acts as a second layer
-2) the only way to sync/validate the latest state of a contract is to process the entire chain up to its genesis (hence the "back to genesis")
-3) as contracts interact with each other, they become reliant on indexing each other, which can quickly grow the indexation cost exponentially 
-4) the (bad) current solution is to prevent interoperability and only allowing manually white-listed contracts to interacts with your contracts
-5) we need a solution that doesn't compromise interoperability as much, while preventing exploding indexing costs, especially for newcomers that cannot pay to run a pricy indexing node
+1) Smart contracts operate within a virtual machine as a second layer.
+2) The sole method to synchronize and validate the latest state of a contract is by processing the entire chain of transaction back to its genesis (thus the term "back to genesis").
+3) As contracts interact with each other, they depend on indexing each other, leading to potentially exponential growth in indexing costs.
+4) The current, suboptimal solution involves restricting interoperability and allowing only manually whitelisted contracts to interact with your own contracts.
+5) A more desirable solution should aim to preserve better interoperability while mitigating the escalating indexing costs, particularly for newcomers who are unable to afford running expensive indexing nodes.
+
+# How to Contribute
+
+To get started, begin by reading the various proposals within this repository.
+
+You can contribute in two ways:
+
+1) Open issues to initiate discussions.
+2) Submit new proposals via pull requests.
+
+For contributions to existing proposals or for creating new ones that haven't been suggested yet, feel free to open a pull request. Refer to the "Formatting" section below for guidelines on how to structure your proposals.
+
+As the project progresses, if distinct solutions start to emerge, we will categorize each of them into separate folders, providing a summary in this README file.
+
+# Formatting Guidelines
+
+These formatting guidelines are loosely inspired by the concept of Bitcoin BIPs (Bitcoin Improvement Proposals) as defined [here](https://github.com/bitcoin/bips). It is highly recommended that each BTGP contains a single key proposal or new idea. The more focused the BTGP, the more likely it is to be successful.
 
 
-# How to contribute
+Each BTGP should include the following sections:
 
-For a starter, read the different proposals in this repo.
-
-You can contribute by opening issues for discussion or by opening new proposals with pull-requests.
-
-You can open a new pull-request to contribute to a proposal or to create a new one if you have an idea that hasn't be proposed yet. See the section on Formatting below.
-
-Eventually if a few main different solutions emerge, we will organize each in its own folder with a summary in this README file.
-
-# Formatting
-
-(this is roughly inspired by the concept of bitcoin BIPs as defined here: https://github.com/bitcoin/bips)
-
-It is highly recommended that a single BTGP contain a single key proposal or new idea. The more focused the BTGP, the more successful it tends to be.
+- **Header** - like the example header provided below including title, authors, etc. Feel free to add more fields if you think they would improve the review process.
 
 ```txt
   BTGP: 1
-  Title: first BTGP proposal
+  Title: First BTGP proposal
   Authors: Zhell <zhell1057@gmail.com>
   Created: 2023-09-26
   ```
 
-Then each BTGP should have the following parts:
+- **Abstract:** A concise description of the proposal in fewer than 200 words.
+- **Motivation:** An explanation of why existing protocols and proposals are inadequate, and how your proposal is superior or at least worthy of consideration.
+- **Specification:** A detailed technical explanation of how your idea would work.
+- **Economics:** In-depth insight into the economics to ensure the long-term success of all participants in the protocol.
+- **Backward Compatibility:** Clarification regarding whether backward compatibility will be affected and the severity of such an impact. Describe potential transition processes that could be implemented to facilitate a smooth migration.
 
-- **Header** - such as the example provided above with title, authors, etc. Feel free to add more if you think they would improve the process.
-- **Abstract** - short (<200words) description of the proposal
-- **Motivation** - explain why the existing protocols and proposals are inadequate and yours is better or at least interesting to consider
-- **Specification** - explain in details how your idea would work from a technical point of view
-- **Economics** - explain in details how the economics would work to guarantee long term success of each actors in the protocol
-- **Backward Compatibility** - Explain if you are going to break backward compatibility and the severity of it. Explain eventual transition processes that could be implemented to make the migration more flawless
+# Copyrights and Public Domain
 
-# Copyrights / public domain
+Please be aware that by submitting a BTGP, you are automatically placing it in the public domain for unrestricted use.
 
-Note that submitting a BTGP means you automatically put it as public domain use.
+# Seed Ideas for Inspiration
 
-# Some seed ideas for inspiration
+1) **Full Indexer**
 
-1) **full indexer**
+Build a full indexer that covers the entire protocol. However, it's worth noting that maintaining such an indexer is prohibitively expensive and resource-intensive. The lack of a clear economically viable business model presents a challenge. This issue was exemplified by the original RunConnect indexer node, which went bankrupt due to a single app generating an overwhelming number of transactions, degrading service quality for other apps, and becoming unsustainable.
 
-build a full indexer that indexes all the protocol, but this is extremely expensive and intensive to maintain, and also to this day doesn't have any clear economically viable business model. It is also one of the reasons why the original RunConnect indexer node went bankrupt (one app was generating thousands of transactions and the node couldn't keep up which degraded service for all other apps and eventually cost too much to maintain).
+2) **Co-Signer**
 
-2) **co-signer**
+Introduce a co-signer (aka authorizer) for each transaction, or even establish a pool of co-signers. Keep in mind that this approach may increase centralization at the transaction creation level.
 
-have a co-signer (aka authorizer) for every single transaction. It can also be a pool of co-signers. But this has the drawback of making it more centralized at the transaction-creation level.
+3) **Full History**
 
-3) **full history**
+Include the complete token history within each transaction. However, be aware that this could lead to exponentially rising transaction fees as the transaction chain grows.
 
-include the full token history in each transaction, but this makes the fees explode as the chain increases
+4) **Script Protocol Implementation**
 
-4) **script protocol implementation**
-
-implement the full RUN protocol in script and include it into each transaction (probably too burdensome to do though)
-
+Implement the entire RUN protocol in script (using [scrypt](https://scrypt.io/)) and integrate it into each transaction's lock. This is most likely too burdensome to implement though.
   
-5) **trusted nodes with proof of code ownership**
+5) **Trusted Nodes with Proof of Code Ownership**
 
-create a protocol for trusted nodes to provide states of contracts they care about with a way for them to prove their ownership of contracts' code so that we can trust their state commitments. (This could be a good first iteration).
+Develop a protocol for trusted nodes to provide contract states they are responsible for, along with a means to prove ownership of the contract's code. This approach could serve as an initial iteration since it appears more feasible than previous ones, while striking a good balance among various properties.
 
-6) **onchain delegation**
+6) **Onchain Delegation**
 
-same as above but add the ability for code owners to do an onchain delegation of nodes they trust to index the states correctly.
-
+Extend the previous idea by allowing code owners to delegate onchain the responsibility of indexing states to nodes they trust.
   
-7) **onchain commitments**
+7) **Onchain Commitments**
 
-same as above but the nodes commit onchain commitments of the smartcontracts states from the contracts they care about.
+Build upon the above concepts by having nodes commit onchain to the states of smart contracts they are concerned with.
 
+8) **Commitments with Proofs**
 
-8) **commitments with proofs**
-
-same as above but make nodes also able to check each other to some extent, which can also include some proof of work or proof of stake on top of the commitments. (This is were we see the solution going for now, but who knows?).
+Enhance the previous proposal by enabling nodes to verify each other to some extent. This verification may incorporate elements like proof of work or proof of stake in addition to commitments. While this approach seems promising to us, the ultimate solution remains uncertain.
 
